@@ -37,4 +37,30 @@ public:
         cout << "Silahkan lihat daftar transaksi di Daftar Transaksi" << endl;
     }
 
+    void tampilkan_transaksi() {
+        if (list_transaksi.empty()) {
+            cout << "Belum ada transaksi" << endl;
+            return;
+        }
+        cout << "Daftar transaksi:" << endl;
+        for (const auto &t : list_transaksi) {
+            cout << t.jenis << ": " << t.jumlah << " - " << t.kategori << endl;
+        }
+    }
+
+    int tampilkan_saldo() {
+        return saldo;
+    }
+};
+
+int main() {
+    pengelola_keuangan keuangan;
+    while (true) {
+        cout << "Program Pengelola Keuangan" << "\n";
+        cout << "1. Tambah Transaksi" << "\n";
+        cout << "2. Tampilkan Transaksi" << "\n";
+        cout << "3. Tampilkan Saldo" << "\n";
+        cout << "4. Selesai" << "\n";
+        cout << "Pilih program: ";
+        cin >> pilih_kategori;
 
