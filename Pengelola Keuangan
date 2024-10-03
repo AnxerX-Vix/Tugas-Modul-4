@@ -1,1 +1,17 @@
+#include <iostream>
+#include <string>
+#include <vector>
 
+using namespace std;
+
+int saldo = 0;
+string jenis;
+int jumlah;
+string kategori;
+int pilih_kategori;
+
+struct transaksi {
+    string jenis;
+    int jumlah;
+    string kategori;
+};
