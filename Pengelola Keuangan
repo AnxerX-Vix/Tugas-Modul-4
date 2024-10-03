@@ -15,3 +15,26 @@ struct transaksi {
     int jumlah;
     string kategori;
 };
+
+class pengelola_keuangan {
+private:
+    vector<transaksi> list_transaksi;
+    int saldo;
+
+public:
+    pengelola_keuangan() {
+        saldo = 0;
+    }
+
+    void tambah_transaksi(string jenis, int jumlah, string kategori) {
+        transaksi t = {jenis, jumlah, kategori};
+        list_transaksi.push_back(t);
+        if (jenis == "Pemasukan") {
+            saldo += jumlah;
+        } else if (jenis == "Pengeluaran") {
+            saldo -= jumlah;
+        }
+        cout << "Silahkan lihat daftar transaksi di Daftar Transaksi" << endl;
+    }
+
+
