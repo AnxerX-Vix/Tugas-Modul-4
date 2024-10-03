@@ -55,7 +55,7 @@ public:
 
 int main() {
     pengelola_keuangan keuangan;
-    while (true) {
+    do {
         cout << "Program Pengelola Keuangan" << "\n";
         cout << "1. Tambah Transaksi" << "\n";
         cout << "2. Tampilkan Transaksi" << "\n";
@@ -63,6 +63,14 @@ int main() {
         cout << "4. Selesai" << "\n";
         cout << "Pilih program: ";
         cin >> pilih_kategori;
+
+        if (cin.fail()) {
+            cout << "Input tidak valid, tolong masukkan angka." << endl;
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
+
 
         switch (pilih_kategori) {
             case 1: {
@@ -110,5 +118,6 @@ int main() {
             }
         }
     }
+while (pilih_kategori !=4);
 }
 
