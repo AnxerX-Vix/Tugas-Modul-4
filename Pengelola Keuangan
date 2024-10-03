@@ -64,3 +64,51 @@ int main() {
         cout << "Pilih program: ";
         cin >> pilih_kategori;
 
+        switch (pilih_kategori) {
+            case 1: {
+                cout << "Masukkan jumlah uang transaksi: ";
+                cin >> jumlah;
+
+                cout << "Pilih jenis transaksi\n";
+                cout << "1. Pemasukan\n";
+                cout << "2. Pengeluaran\n";
+                cout << "Pilih (masukkan nomor): ";
+                int jenis_pilihan;
+                cin >> jenis_pilihan;
+
+                if (jenis_pilihan == 1) {
+                    jenis = "Pemasukan";
+                } else if (jenis_pilihan == 2) {
+                    jenis = "Pengeluaran";
+                } else {
+                    cout << "Pilihan tidak valid. Silahkan ulangi lagi." << endl;
+                    break;
+                }
+
+                cout << "Masukkan kategori transaksi: (contoh: Makanan, Tiket Bioskop) ";
+                cin.ignore(); // Mengabaikan karakter newline sebelumnya
+                getline(cin, kategori);
+
+                keuangan.tambah_transaksi(jenis, jumlah, kategori);
+                break;
+            }
+            case 2: {
+                keuangan.tampilkan_transaksi();
+                break;
+            }
+            case 3: {
+                cout << "Saldo saat ini: " << keuangan.tampilkan_saldo() << endl;
+                break;
+            }
+            case 4: {
+                cout << "Program selesai" << endl;
+                return 0;
+            }
+            default: {
+                cout << "Pilihan tidak valid, silahkan coba lagi" << endl;
+                break;
+            }
+        }
+    }
+}
+
